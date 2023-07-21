@@ -17,6 +17,7 @@ una vez actualizado
 14-estudiar miimficacion
 4-terminar edicion de datalist
 falta poder eliminar el item de datalist
+enviar a git
 
 
 

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>CARGA DE EMERGENCIA </title>
+    <!-- <link rel="icon" type="image/png" href="./IMG/"> -->
+
+    <style>
+        *{
+            font-size: 1vw;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        tr:nth-child(odd) {
+            background-color: #ddd;
+        }
+    </style>
+  </head>
+  <body>
+    <div>
+      <h1>carga</h1>
+        <button id="cargar" tabindex="-1">Carga Llamadas</button>
+        <input type="file" id="archivo" style="display:none" tabindex="-1"><br>
+    </div>
+
+<script>
+    // Manejador del evento click del botón "Cargar archivo JSON"
+    document.getElementById("cargar").addEventListener("click", function() {
+        // Hacer clic en el input file para abrir el selector de archivos
+        document.getElementById("archivo").click();
+    });
+    //RECUPERA EN LOCAL STORAGE LAS LLAMADAS DESDE ARCHVO JSON
+    document.getElementById("archivo").addEventListener("change", function() {
+        // Obtener el archivo seleccionado
+        let archivo = this.files[0];
+        // Leer el contenido del archivo como texto
+        var lector = new FileReader();
+        lector.onload = function() {
+            debugger
+        // Parsear el contenido del archivo como un objeto JSON
+        let listaLLamadas = JSON.parse(lector.result);
+        //calculo numero de llamadas
+        let totalLLamadas=listaLLamadas.length
+        // Almacenar la lista de personas en Local Storage
+        localStorage.setItem("llamadas", JSON.stringify(listaLLamadas));
+        
+        // Mostrar un mensaje de éxito
+        alert("Archivo cargado con éxito, Hay "+totalLLamadas+" Llamadas");
+        }
+        lector.readAsText(archivo);
+    });
+    
+    // Manejador del evento click del botón "Cargar archivo JSON"
+    document.getElementById("cargar").addEventListener("click", function() {
+        // Hacer clic en el input file para abrir el selector de archivos
+        document.getElementById("archivo").click();
+    });
+
+</script>
+</body>
+</html>
+
+

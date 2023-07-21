@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Lista Tipo de Correos y repaldos Json</title>
+  <link rel="icon" type="image/png" href="./IMG/correo.png">
+  <link rel="stylesheet" href="./CSS/listaCargaGrabaCorreosTipo.css">
+</head>
+<body>
+  <h1>Lista Tipos de Correos <br> Y respaldo Json </h1> 
+  <label for="tipo-correo">Tipo de Correo:</label>
+  <select id="tipo-correo"></select>
+  <ol id="lista-correos"></ol>
+  <button id="guardar-correos">Guardar Correos</button>
+  <!-- <button id="cargar-correos">Cargar Correos</button> -->
+  <button id="edita" onclick="cargarPagina('./editaCorreosTipo.html')">Edit@</button>
+  <button id="nuevo" onclick="cargarPagina('./agregaEliminaCorreosTipo.html')">Nuev@ y elimin@</button>
+  <div>
+    <label for="buscar-archivo">Cargar en LocalStorage a partir de Archivo</label>
+    <input type="file" accept="application/json" id="buscar-archivo" name="buscar-archivo">
+  </div>
+  <!-- SCRIPTS -->
+  <script src="./js/libreria.js"></script>
+  <!-- <script src="./js/index.js"></script> -->
+  <script src="./js/listaCargaGrabaCorreosTipo.js"></script>
+</body>
+</html>

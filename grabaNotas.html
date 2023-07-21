@@ -1,0 +1,31 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Editar archivo de texto</title>
+    <link rel="icon" type="image/png" href="./IMG/notas.png">
+    <style>
+        textarea{
+            width: 59vw;
+            font-size: 3vw;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+    </style>
+</head>
+<body>
+	<h1>NOTAS LAB</h1>
+	<form>
+		<button type="button" onclick="leerArchivo()">Leer archivo</button>
+		<br><br>
+		<!-- <label for="texto">Texto:</label> -->
+		<textarea id="texto" name="texto"></textarea>
+		<br><br>
+		<button type="button" onclick="guardarTexto()">Guardar</button>
+	</form>
+    <script src="./JS/grabaNotas.js"></script>
+</body>
+</html>
+
+
+
+

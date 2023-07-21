@@ -1,0 +1,54 @@
+<html> 
+    <head> 
+        <meta charset="UTF-8">
+        <title>Datos en Local Storage</title> 
+        <link rel="icon" type="image/png" href="./IMG/base-de-datos.png">
+        <link rel="stylesheet" href="./CSS/editaLocalStorage.css">
+    </head> 
+<body> 
+    <h2>EDITANDO BASE DE DATOS EN LOCAL</h2> 
+    <button class="elimina" onclick="eliminarCorreos()">Eliminar 'correos'</button>
+	<button class="elimina" onclick="eliminarLlamadas()">Eliminar 'llamadas'</button>
+	<button class="elimina" onclick="eliminarTiempos()">Eliminar 'Tiempos'</button>
+	<button class="elimina" onclick="eliminarDeLocal('asuntos')">Eliminar 'asuntos'</button>
+	<button class="elimina" onclick="eliminarDeLocal('listaDatos')">Eliminar 'listaDatos'</button>
+	<button class="elimina" onclick="eliminarDeLocal('bitacora')">Eliminar 'bitacora'</button>
+	<button class="elimina" onclick="eliminarDeLocal('calls')">Eliminar 'calls'</button>
+	<button class="elimina" onclick="eliminarLocalStorage()">Eliminar todo el Local Storage</button>
+    <br><br>
+    <section class="seccionesBD">
+        <section class="seccionBD">
+            <button onclick="cargaBaseCompleta()">Carga Base Completa desde Json</button>
+            <input type="file" id="archivoTotJSON" accept=".json"><br>
+            <button id="grabaTotal" onclick="grabaBaseCompleta()">Graba Base Completa de Local Storage</button>
+        </section>
+        <section class="seccionXls">
+            <label for="json-file">Seleccionar archivo JSON:</label>
+            <input type="file" id="json-file"><br><br>
+            <button type="button" onclick="convertirAxls()">Convertir a Xls</button>
+            <section class="seccionUneArchivos">
+                <button type="button" onclick='cargarPagina("./intergraLLamadas.html")'>Integra Archivos de Llamadas</button>
+            </section>
+        </section>
+    </section>
+    <table style="width:100%"> 
+        <tr> 
+            <th>Clave</th> 
+            <th>Valor</th> 
+        </tr> 
+        <script> 
+            for (var i = 0; i < localStorage.length; i++) { 
+                var clave = localStorage.key(i); 
+                var valor = localStorage.getItem(clave); 
+                document.write('<tr><td>'+clave+'</td><td>'+valor+'</td></tr>'); 
+            } 
+        </script> 
+    </table> 
+    <script src="./JS/libreria.js"></script>
+    <script src="./JS/editaLocalStorage.js"></script>
+    <!-- PARA CONVERTIR A XLS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.16.8/xlsx.full.min.js"></script>
+
+</body> 
+    
+</html>

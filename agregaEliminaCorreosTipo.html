@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Agrega y Elimina Tipos de Correo</title>
+	<link rel="icon" type="image/png" href="./IMG/sobre.png">
+    <link rel="stylesheet" href="./CSS/agregaEliminaCorreosTipo.css">
+</head>
+<body>
+	<div class="container">
+		<h1>Tipos de Correo - Nuevos y eliminacion</h1>
+		<form id="formulario">
+			<label for="tipo">Tipo:</label>
+			<input type="text" id="tipo" name="tipo" required>
+			<label for="para">Para:</label>
+			<input type="text" id="para" name="para" required>
+			<label for="cc">CC:</label>
+			<input type="text" id="cc" name="cc">
+			<label for="cco">CCO:</label>
+			<input type="text" id="cco" name="cco">
+			<label for="asunto">Asunto:</label>
+			<input type="text" id="asunto" name="asunto" required>
+			<label for="contenido">Contenido:</label>
+			<textarea id="contenido" name="contenido" required></textarea>
+			<input type="submit" value="Guardar">
+		</form>
+		<table id="tabla">
+			<thead>
+				<tr>
+					<th>Tipo</th>
+					<th>Para</th>
+					<th>CC</th>
+					<th>CCO</th>
+					<th>Asunto</th>
+					<th>Contenido</th>
+					<th></th>
+				</tr>
+			</thead>
+			<tbody>
+			</tbody>
+		</table>
+	</div>
+		<script src="./JS/agregaEliminaCorreosTipo.js"></script>
+</body>
+</html>
+

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Lista de Hora de Inicio</title>
+    <link rel="icon" type="image/png" href="./IMG/relojito.png">
+    <link rel="stylesheet" href="./CSS/listaXhora.css">
+  </head>
+  <body>
+    <!-- CARGA LLAMADAS -->
+    <section>
+        <div>
+          <button id="cargarActual" tabindex="-1" onclick="leeLLamadasLocal()">Presenta Llamadas Actuales</button>
+            <button id="leeAnalisis" tabindex="-1" onclick="leeLLamadasAnalisis()">Presenta llamadas Analisis</button>
+            <button id="cargar" tabindex="-1">Carga Llamadas Analisis</button>
+            <input type="file" id="archivo" style="display:none" tabindex="-1"><br>
+            <br>
+        </div>
+    </section>
+    <!-- BUSCA POR ID ANALISIS -->
+    <section class="seccionAnalisis">
+        <section>
+              <label for="numeroServicio">Número de servicio Analisis:</label>
+              <input type="text" id="numeroServicio" name="numeroServicio">
+              <button type="button" onclick="buscar()">Buscar</button>
+              <br>
+              <h2>Hora Analisis:</h2>
+              <div id="resultado"></div>
+        </section>
+        <!-- BUSCA POR HORA -->
+        <section>
+            <select id="horaInicio"></select>
+        </section>
+        <table id="tablaHora">
+          <thead>
+            <tr>
+              <th>Número de Servicio</th>
+              <th>Dígito Verificador</th>
+              <th>Fecha de Inicio</th>
+              <th>Nombre de Usuario</th>
+              <th>RUT</th>
+              <th>Celular</th>
+              <th>Email</th>
+              <th>Asunto</th>
+              <th>Glosa</th>
+              <th>Desarrollo</th>
+              <th>Recordatorio</th>
+              <th>Número de Atención</th>
+              <th>Número de Aviso</th>
+              <th>Número de Orden</th>
+            </tr>
+          </thead>
+          <tbody id="tablaResultados"></tbody>
+        </table>
+      </section>
+    <br>
+        <!-- BUSCA POR ID ANALISIS -->
+        <section class="seccionActual">
+          <section>
+                <label for="numeroServicioActual">Número de servicio Analisis:</label>
+                <input type="text" id="numeroServicioActual" name="numeroServicioActual">
+                <button type="button" onclick="buscarActual()">Buscar</button>
+                <br>
+                <h2>Hora Analisis:</h2>
+                <div id="resultadoActual"></div>
+          </section>
+          <!-- BUSCA POR HORA -->
+          <section>
+              <select id="horaInicioActual"></select>
+          </section>
+          <table id="tablaHoraActual">
+            <thead>
+              <tr>
+                <th>Número de Servicio</th>
+                <th>Dígito Verificador</th>
+                <th>Fecha de Inicio</th>
+                <th>Nombre de Usuario</th>
+                <th>RUT</th>
+                <th>Celular</th>
+                <th>Email</th>
+                <th>Asunto</th>
+                <th>Glosa</th>
+                <th>Desarrollo</th>
+                <th>Recordatorio</th>
+                <th>Número de Atención</th>
+                <th>Número de Aviso</th>
+                <th>Número de Orden</th>
+              </tr>
+            </thead>
+            <tbody id="tablaResultadosActual"></tbody>
+          </table>
+        </section>
+    <br>
+    <script src="./JS/listaXhora.js"></script>
+</body>
+</html>
+
+

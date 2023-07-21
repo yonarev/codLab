@@ -1,0 +1,28 @@
+
+ACTUALIZA CODLAB
+CodLab1314 actualizar solo:
+1-desarrolloAasunto OK
+2-desarrolloAglosa OK
+3-edición de correos en menu ok
+5-al cargar timer que sea automatico ok
+6-asegurar backup efectivo y agregar key bitacora ok
+7-asegurar lectura efectiva bck cn key bitacora ok
+8-graba cada 1 minuto ok
+9-edicion de llamadas actualiza desarrollo y asunto ok
+10- al actualizar asunto que no se borren los datos ok
+una vez actualizado
+11-corrije formato fecha arriba ok
+12-carpeta iconos y links ok
+13/filtrar backps en BD dejar lo imprescindible ok
+14-estudiar miimficacion
+4-terminar edicion de datalist
+falta poder eliminar el item de datalist
+
+
+
+
+
+
+
+
+

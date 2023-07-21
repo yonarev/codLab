@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Tabla JSON</title>
+    <style>
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+  color: #333;
+}
+
+th, td {
+  border: 1px solid #ccc;
+  padding: 8px;
+}
+
+th {
+  background-color: #f5f5f5;
+  text-align: left;
+}
+
+tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+tr:hover {
+  background-color: #ddd;
+}
+
+@media only screen and (max-width: 768px) {
+  table {
+    font-size: 12px;
+  }
+  
+  th, td {
+    padding: 4px;
+  }
+}
+
+    </style>
+</head>
+<body>
+  <table>
+    <thead>
+      <tr>
+        <th>idNow</th>
+        <th>rac</th>
+        <th>fechaInicio</th>
+        <th>horaInicio</th>
+        <th>horaFinal</th>
+        <th>usuarioNombres</th>
+        <th>UsuarioApellidoPaterno</th>
+        <th>UsuarioApellidoMaterno</th>
+        <th>rut</th>
+        <th>celular</th>
+        <th>mail</th>
+        <th>direccion</th>
+        <th>calle</th>
+        <th>numeroDireccion</th>
+        <th>depto</th>
+        <th>comuna</th>
+        <th>referencia</th>
+        <th>numeroServicio</th>
+        <th>digitoVerificador</th>
+        <th>asunto</th>
+        <th>desarrollo</th>
+        <th>glosa</th>
+        <th>recordatorio</th>
+        <th>numeroAtencion</th>
+        <th>numeroAviso</th>
+        <th>numeroOrden</th>
+      </tr>
+    </thead>
+    <tbody id="tabla-body">
+    </tbody>
+  </table>
+
+  <script>
+    const input = document.createElement('input');
+    input.type = 'file';
+    input.accept = '.json';
+    input.addEventListener('change', () => {
+      const file = input.files[0];
+      const reader = new FileReader();
+      reader.onload = (event) => {
+        const data = JSON.parse(event.target.result);
+        // data.sort((a, b) => a.fechaInicio - b.fechaInicio);
+
+        const tablaBody = document.getElementById('tabla-body');
+        data.forEach(obj => {
+          const fila = document.createElement('tr');
+          for (const prop in obj) {
+            const celda = document.createElement('td');
+            celda.textContent = obj[prop];
+            fila.appendChild(celda);
+          }
+          tablaBody.appendChild(fila);
+        });
+      };
+      reader.readAsText(file);
+    });
+
+    document.body.appendChild(input);
+  </script>
+</body>
+</html>

@@ -1,0 +1,793 @@
+*{
+    margin-top: 1px;
+    margin-left: 1px; 
+    font-weight: bold; 
+}
+body {
+    /* background-color: rgb(154, 157, 161); */
+    /* background-color:#626366; */
+    /* naranjo crema */
+    /* background-color:#77ee0e; */
+    /* azul essbio */
+    background-color:#0078D7;
+    /* Degradado de color azul claro a azul oscuro */
+    /* background: linear-gradient(to left, #3a3a8f, #87CEFA); */
+    /* Degradado de color rojo a naranja */
+    /* background: linear-gradient(to bottom, #FF0000, #FFA500); */
+    /* Degradado de color verde claro a verde oscuro */
+    /* background: linear-gradient(to bottom, #ADFF2F, #006400); */
+    /* Degradado de color amarillo a naranja */
+    /* background: linear-gradient(to bottom, #FFFF00, #FF8C00); */
+    /* background: linear-gradient(to bottom, #e4e4c6, #8d8377); */
+
+    font-family: sans-serif;
+    /* font-size: 3vw; */
+    font-weight: bold; 
+    line-height: 1.5;
+    padding: 0px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    margin-left: 0px;
+}
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+textarea {
+  resize: both;
+  overflow: auto;
+  padding: 5px;
+  border: none;
+  outline: none;
+  box-sizing: border-box;
+  font-size: 3vw;
+}
+textarea::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 15px;
+  height: 15px;
+  background: #fff;
+  border-bottom: 2px solid #ccc;
+  border-right: 2px solid #ccc;
+  cursor: nwse-resize;
+}
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  height: 100%;
+  flex-wrap: wrap;
+  flex-basis: 0;
+  flex-shrink: 0;
+}
+form {
+    margin-bottom: 2px;
+    margin-top: 2px;
+    display:flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    flex-basis: 0;
+    flex-shrink: 0;
+}
+label {
+    display: block;
+    margin: 0px;
+    padding: 0px;
+    text-align: center;
+}
+input[type="tel"] {
+  font-size: 3vw;
+  padding: 8px 8px;
+  border: 1px solid black;
+  border-radius: 4px;
+  width: 300px; /* Ajusta este valor para cambiar el ancho del campo */
+  outline: none; /* Elimina el borde exterior */
+}
+input[type="text"] {
+    height: 4vw;
+    font-size: 3vw;
+    padding: 3px 8px;
+    border: 1px solid black;
+    border-radius: 4px;
+    width: 300px; /* Ajusta este valor para cambiar el ancho del campo */
+    outline: none; /* Elimina el borde exterior */
+}
+input[type="text"]:focus {
+    outline: none; /* Elimina el borde exterior */
+    box-shadow: 0 0 0 2px #0066ff; /* Agrega un resaltado alrededor del campo */
+}
+#horaIni{
+  font-size: 3vw;
+  width: 17vw;
+  height: 15vw;
+}
+#fechaInicio{
+  font-size: 3vw;
+  width: 15vw;
+}
+#hora{
+  font-size: 3vw;
+  width: 16vw;
+  height: 4vw;
+}
+#horaInicio{
+  width: 12vw;
+  font-size: 3vw;
+}
+section{
+   border-style:groove;
+}
+button {
+  padding: 1vw,0,0;
+  /* padding-top: 0px;
+  padding-bottom: 0px; */
+  line-height: 1.5;
+  font-family: sans-serif;
+  font-weight: 600;
+  box-sizing: border-box;
+  font-size: 1.5vw;
+  border: none;
+  border-radius: 0px;
+  cursor: pointer;
+  outline: none;
+  display: flex;
+  align-items: center;
+  background-color: transparent;
+  flex-wrap: wrap;
+  flex-basis: 0;
+  flex-shrink: 0;
+  flex-grow: 0;
+}
+span{
+    color: rgb(252, 246, 246);
+    background-color: rgb(113, 72, 72);
+}
+.botones{
+    display: flex;
+    flex-direction: row;
+    flex-wrap:wrap;
+}
+#copy-button {
+  width: fit-content; /* Ajusta automáticamente el ancho del botón al contenido */
+}
+.divAjuste{
+  margin:0,0,0;
+  padding: 0,0,0;
+}
+i.fa {
+  margin-right: 4px;
+  font-size: 24px; /* Ajusta este valor para cambiar el tamaño del ícono */
+  color: white;
+}
+.boton-disco {
+  display: inline-block;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  background-color: transparent;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+}
+.boton-disco i {
+  margin-right: 10px;
+  color: white;
+  font-size: 24px;
+}
+.reload-button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  outline: none;
+}
+svg {
+  transform: scale(2);
+}
+.upload-button {
+  width: 2;
+  height: 2;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  outline: none;
+}
+label {
+    display: block;
+    margin-bottom: 1px;
+    text-align: left;
+}
+input[type="radio"] {
+    margin-right: 2px;
+}
+  
+div {
+    display: inline-block;
+    margin-right: 1px;
+    margin-bottom: 1px;
+}
+#datosRac{
+  display: flex;
+}
+#datosDireccion{
+    display: flex;
+    flex-direction: rows;
+}
+#asunto{    
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    align-content: center;
+    text-align: left;
+    font-size: 3vw !important;
+}
+#tiempo{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    align-content: center;
+    text-align: center;
+    font-size: 20px;
+}
+#servicio{
+  display: flex;
+  flex-direction: row;
+ 
+  border-style: none;
+}
+#seccionNumservicio{
+    display: flex;
+    flex-direction: column;
+}
+#numeroServicio,#numeroAtencion,#numeroAviso,#numeroOrden{
+    font-size: 3vw;
+    text-align: center;
+    width: 19vw;
+    height: 4vw;
+}
+#numeroServicio{
+  background-color: #6cdc74;
+}
+#digitoVerificador{
+    font-size: 3vw;
+    width: 6vw;
+    text-align: center;
+    font-weight: bolder;
+    height: 4vw;
+}
+#glosa, #desarrollo{
+    font-size: 3vw;
+    line-height: 1;
+    width: 95vw;
+    height: 25vw !important;
+    background-color: #9e8d8d;
+}
+.admiAsunto {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+.admiAsunto > * {
+  flex: 1;
+  min-width: 0;
+}
+#nuevoAsunto{
+  font-size: 3w;
+  width: 40vw;
+  height: 4vw;
+  margin-right: 1vw; /* Espacio entre el select y el input */
+  margin-top: 0;
+  margin-bottom: 0;
+}
+#asunto {
+  width: 95vw ;
+  height: 22vw; 
+  font-size: 6w;
+}
+#listaAsuntos{
+  line-height: 2;
+  width: 45vw !important;
+  height: 4.5vw;
+  background-color: #5ff269;
+  padding-top: 0;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+#detalleAsunto{
+  height: 21vw;
+  line-height: 1;
+  width: 95vw;
+  background-color: #010101;
+  color: white;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 3vw;
+  font-weight: 100;
+}
+#glosa{
+  font-family: Arial, Helvetica, sans-serif !important;
+  font-size: 3vw !important;
+  font-weight: 100;
+  background-color: #0d0d0d;
+  color: yellow;
+}
+
+
+#rac{
+  width: 30vw;
+  height: 4vw;
+  background-color: rgb(116, 116, 122);
+  color: #ffffff;
+  font-weight: 100;
+  font-size: 2.5vw;
+}
+#usuarioNombres{
+  width: 72vw;
+  height: 4vw;
+  font-size: 3vw;
+}
+#apellidos{
+  width: 90vw;
+  height:4vw;
+  font-size: 3vw;
+}
+#usuarioApellidoPaterno,#usuarioApellidoMaterno{
+  width: 44vw;
+  height:5vw;
+  margin: 0px;
+  padding: 0px;
+  font-size: 3vw;
+}
+#apelli2 {
+  display: flex;
+  flex-direction: row;
+  justify-content: left;
+  flex-wrap: wrap; 
+}
+#direccion,#referencia{
+  width: 90vw;
+  height: 4vw;
+  font-size: 3vw;
+}
+select{
+  font-size: 3vw;
+}
+#comuna {
+  width: 38vw !important;
+  height: 4vw;
+  font-size: 3vw;
+}
+#calle {
+  height: 4vw;
+  font-size: 3vw;
+  width: 29vw !important;
+}
+#numero,#depto{
+  height: 4vw;
+  width: 6vw;
+  font-size: 3vw;
+}
+#direcciones {
+  margin: 0;
+  padding: 0;
+  font-size: 3vw;
+}
+#rutcelmail{
+  display: flex;
+  flex-direction: row;
+  justify-content: left;
+  flex-wrap: wrap;
+  padding-top: 0;
+  padding-bottom: 0;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+/* COLOR DISTINTIVO PARA DATOS CLAVES */
+#celular,#rut,#mail{
+  background-color: #ffffff;
+  padding-left: 0vw;
+  padding-right: 0vw;
+  font-size: 3vw;
+  height: 4vw !important;
+  padding-top: 0;
+  padding-bottom: 0;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+#celular{
+  width: 16vw !important; 
+}
+#mail {
+  width: 54vw !important; 
+  height: 4vw;
+
+}
+#rut{
+  width: 20vw !important; 
+  height: 4vw !important;
+}
+.uppercase-btn {
+  background-color: transparent;
+  border: none;
+  padding: 0;
+  margin: 0;
+}
+.uppercase-btn i {
+  font-size: 3vw;
+  color: white;
+}
+.uppercase-btn:hover i {
+  color: #cccccc;
+}
+.lowercase-btn {
+  background-color: transparent;
+  border: none;
+  padding: 0;
+  margin: 0;
+}
+.lowercase-btn i {
+  font-size: 3vw;
+  color: white;
+  transform: rotate(180deg);
+}
+.lowercase-btn:hover i {
+  color: #cccccc;
+}
+#leer-archivo {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+#leer-archivo i {
+  font-size: 24px;
+  color: white;
+}
+#boton-respaldo {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+#boton-respaldo i {
+  font-size: 3vw;
+  color: white;
+}
+#cargar {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+#cargar i {
+  font-size: 3vw;
+  color: white;
+}
+#seccion {
+  display: none;
+}
+/* BOTON DE ENGRANAJE */
+.gear-button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  outline: none;
+}
+.gear-button i {
+  color: white;
+  font-size: 1.5vw;
+}
+/* para no tab botones */
+button:not(:focusable) {
+  outline: none;
+}
+#seccionRecordar{
+  background-color: #d59440;
+  width: 95vw;
+  padding: 0,0,0;
+  margin: 0,0,0;
+}
+/* TITULO RECORDATORIO */
+#seccionRecordar > h2{
+  text-align: center;
+  padding: 0,0,0;
+   margin: 0 auto;
+}
+#textoRecordar{
+  display: flex;
+  flex-direction:row;
+  width: 92vw;
+  margin-left: 0 !important;
+  margin-right: 0!important;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+#id-input{
+  width: 20vw;
+}
+#gestion-input{
+  width: 90vw;
+}
+/* input recordar */
+#nombre-input{
+  width: 90vw;
+  font-weight: 400;
+  font-size: 3vw;
+}
+#recordatorio-form{
+  background-color: #f07a3a;
+  width: 90vw;
+}
+#recordatorios-table{
+  width: 95vw;
+  max-width: 90vw;
+  font-weight: 400;
+  font-size: 3vw;
+  background-color: orangered;
+}
+#recordatorios-table tbody{
+  max-width: 92vw;
+}
+#recordatorios-table td{
+  max-width: 20vw;
+  align-items: center;
+}
+.grabar-btn{
+  width: 20vw;
+  background-color: green;
+  color: white;
+  align-items: center;
+  align-content: center;
+  text-align: center;
+}
+#recordatorios-table input[type=text]{
+  max-width: 18vw;
+}
+table, th, td {
+  border: 1px solid black;
+}
+table td:nth-last-child(2) {
+  width: 1vw !important;
+}
+tr:nth-child(odd) {
+  background-color: #ddd;
+}
+tr:nth-of-type(2n+1) {
+  background-color: #ddd;
+}
+td:nth-child(18) {
+  background-color: rgb(93, 177, 226);
+}
+/* Estilos para la ventana modal */
+.modal {
+  display: none; 
+  position: fixed; 
+  z-index: 1; 
+  padding-top: 100px; 
+  left: 0;
+  top: 0;
+  width: 100%; 
+  height: 100%; 
+  overflow: auto; 
+  background-color: rgba(0,0,0,0.4);
+}
+.modal-content {
+  background-color: #fefefe;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+}
+.modal-header h2 {
+  margin-top: 0;
+}
+.modal-body textarea {
+  width: 100%;
+  height: 200px;
+  resize: none;
+  font-family: monospace;
+}
+.modal-footer {
+  text-align: right;
+}
+.modal-footer button {
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  /* font-size: 16px; */
+  font-size: 1.5vw;
+  margin-left: 10px;
+}
+.modal-footer button:hover {
+  background-color: #3e8e41;
+  
+}
+/* PARA BOTONES REALES */
+.botonesReales {
+  display: inline-block;
+  margin: 1vw,0,0;
+  padding: 1vw,0,0;
+}
+.botonesReales button {
+  display: inline-block;
+  margin: 1vw,0,0;
+  padding: 1vw,0,0;
+  font-weight: 600;
+  font-size: 2vw !important;
+  font-weight:bold;
+}
+.botonesReales input[type="file"] {
+  /* display: none; */
+  display: inline;
+}
+#tiempos{
+  background-color: #81d700;
+  width: 50vw;
+}
+#promedios{
+  background-color: goldenrod;
+}
+.numerosAdicionales{
+  display:flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  margin: 0,0,0;
+  padding: 0,0,0;
+  /* margin-top: 0;
+  margin-bottom: 0;
+  padding-top: 0;
+  padding-bottom: 0; */
+  border-style:none;
+}
+.numeroServicio{
+  display:flex;
+  flex-direction: column;
+  margin-top: 0;
+  margin-bottom: 0;
+  border-style:none;
+}
+.srYsra{
+  margin-left: 1vw;
+  font-size: 2vw;
+}
+/* PARA SELECTOR DE FECHA INICIO */
+/* TAMAñO RADIO BUTTON */
+input[type="radio"] {
+  transform: scale(1.5);
+  padding: 1vw;
+  margin: 1vw;
+}
+.activador{
+  font-size: 2vw;
+}
+.activaSelectorFecha{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-style:none;
+}
+#tempo{
+  font-size:3vw;
+  color: black;
+  background-color:white
+
+}
+.temporal{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  align-content: center;
+}
+
+td th{
+  width: 5vw !important;
+}
+
+.bitacoraActual #nota{
+  padding-top: 0;
+  margin-top: 0;
+  height: 50vw;
+  width: 95vw;
+}
+
+.bitacoraActual {
+  display:flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  margin: 0 auto;
+  background-color: #c8d2b8;
+  align-content: center;
+  align-items: center;
+}
+
+.bitacoraActual h3,p,textarea {
+    margin: 0 auto;
+    padding: 0,0,0;
+    margin: 0,0,0;
+    font-size: 4vw;
+}
+
+.bitacoraActual p{
+  font-size: 3vw;
+  text-align: center;
+  padding-bottom: 0;
+  margin-bottom: 0;
+  padding-top: 0 ;
+  margin-top: 0;
+}
+.bitacoraActual #fecha{
+  margin: 0 auto;
+  text-align: center;
+  align-items: center;
+  align-content: center !important;
+  font-size: 6vw;
+
+}
+/* //TITULO BITACORA*/
+#formLlamada > section.botonesReales.button-text > section:nth-child(17) > form > section > div > h3{
+  margin: 0 auto;
+  text-align: center;
+}
+#formLlamada{
+  padding: 0,0,0,0;
+  margin: 0,0,0,0;
+}
+
+#fecha{
+  margin: 0 auto;
+  text-align: center;
+  align-items: center;
+  align-content: center !important;
+  font-size: 6vw;
+}
+
+.seccionPresentaLLamadas{
+  font-size: 4vw;
+  align-items: center;
+  text-align: center;
+}
+
+.fechaHoraBit{
+  display: flex;
+  flex-direction: row;
+}
+#horaBit{
+  font-size: 4vw;
+  color: black;
+  background-color: #c8d2b8;
+}
+#fechaBit{
+  font-size: 4vw;
+  color: black;
+  background-color: #c8d2b8;
+}
+
+.msgBase{
+  display: flex;
+  flex-direction: row;
+}
+/* AJUSTA TABLA LLAMADAS */
+#tablaLLamadas{
+  /* width: 90vw; */
+  /* padding: 1px; */
+  border: 1px solid black;
+  flex: 1; /* El ancho de la tabla se ajusta automáticamente */
+  max-width: 99%; /* Ancho máximo de la tabla */
+  border-collapse: collapse; /* Colapso de bordes de la tabla */
+}
+#columnaNumSer{
+  width: 10vw;
+}
+

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>CodDat 1.0 Lista</title>
+    <link rel="icon" type="image/png" href="./IMG/lista.png">
+    <link rel="stylesheet" href="./CSS/codDatLista.css">
+  </head>
+  <body>
+    <h1>CodDat 1.0 Lista</h1>
+    <form>
+      <label for="listaItems">Item:</label>
+      <select id="listaItems"></select>
+      <br><br>
+    </form>
+    <form id="editarForm">
+        <label for="nombreProceso">Nombre del proceso:</label>
+        <input type="text" id="nombreProceso" name="nombreProceso"><br><br>
+        <label for="proceso">Proceso:</label>
+        <textarea id="proceso" name="proceso"></textarea><br><br>
+        <button type="button" id="guardarProceso">Guardar</button>
+        <button type="button" id="eliminarProceso">Eliminar</button>
+    </form>
+    <button id="guardaLista">Guardar Lista</button>
+    <div>
+        <label for="buscar-archivo">Cargar en LocalStorage a partir de Archivo</label>
+        <!-- <input type="file" accept="application/json" id="buscar-archivo" name="buscar-archivo"> -->
+        <input type="file" id="buscar-archivo" name="buscar-archivo">
+        <button onclick="actualizarDatos()">Actualizar</button>
+    </div>
+    <hr>
+    <div id="procesos"></div>
+    <script src="./JS/codDatLista.js"></script>
+  </body>
+</html>
+

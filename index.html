@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CodigoLab</title>
+    <link rel="icon" type="image/png" href="./IMG/telefono.png">
+    <link rel="stylesheet" href="./CSS/index.css">
+</head>
+<body onload="inicio()" >
+    <form id="formLlamada">
+        <!-- DATOS RAC -->
+        <section id="datosRac">
+            <input type="text" id="rac" name="rac" placeholder="Datos Rac" tabindex="1">
+            <div id="tiempo">
+                <input id="fechaInicio" name="fechaInicio" disabled>
+                <input id="horaInicio" name="horaInicio" disabled>
+                <input type="text" id="hora">
+            </div>
+            <div class="botones">
+                <button onclick="registraRac()">Rac</button>
+            </div>
+        </section>
+        <!-- ---------------------------------------------- -->
+        <!-- SECCION BOTONES ADMINISTRAN ARCHIVOS -->
+        <section class="botonesReales button-text">
+        <section class="botonesReales">
+            <!-- graba solo local --> 
+            <button onclick="grabaLocal('local')" tabindex="27">G</i></button>
+            <!-- PARA GRABAR REJISTRO EN LOCAL Y ARCHIVO JSON -->
+            <button onclick="grabaLocal('localYJson')" tabindex="27">G.J</i></button>
+            <!-- GRABA TODAS LAS LLAMADAS DESDE LOCALS STORAGE -->
+           <div class="botonesReales">
+                <button onclick="grabaLLamadas()" tabindex="-1">G.JCalls</buttonl>
+            </div>
+            <!-- CARGA LAS LLAMADAS DESDE ARCHIVO JSON A LOCAL -->
+            <div class="botonesReales">
+                <button id="cargar" tabindex="-1">LeeCalls</button>
+                <input type="file" id="archivo" style="display:none" tabindex="-1"><br>
+            </div>
+            <!-- LEE DE LOCAL STORAGE Y DESPLIEGA TABLA ABAJO -->
+            <div class="botonesReales">
+                <button id="leer-archivo" onclick="leeLocalLLamadas()" tabindex="-1">
+                    LeeLoc.
+                </button>
+            </div>
+            <div class="botonesReales">
+                <button onclick="cargarPagina('./listaXhora.html')" tabindex="-1">
+                    A
+                </button>
+            </div>
+            <div class="botonesReales">
+                <button onclick="cargarPagina('./CodDat-lista.html')" tabindex="-1">
+                    D
+                </button>
+            </div>
+            <!-- NO BORRRAR ABAJO SIRVE  -->
+            <!-- <input type="file" id="file-input" tabindex="-1"> -->
+            <div class="botonesReales">
+                <button onclick="cargarPagina('./CodDat-agrega.html')" tabindex="-1">
+                   +D
+                </button>
+            </div>
+            <div class="botonesReales">
+                <button id="editorJ" onclick="cargarPagina('https://jsoneditoronline.org/')" tabindex="-1">
+                    EdJ
+                </button>
+            </div>
+            <div class="botonesReales">
+                <button id="jsonkrack" onclick="cargarPagina('https://jsoncrack.com/editor')" tabindex="-1">
+                    JK
+                </button>
+            </div>
+            <div class="botonesReales">
+                <button id="timer" onclick="cargarPagina('./timer.html')" tabindex="-1">
+                    T
+                </button>
+            </div>
+            <div class="botonesReales">
+                <button id="tmo" onclick="cargarPagina('./grabaTmo.html')" tabindex="-1">
+                    G.T
+                </button>
+            </div>
+            <div class="botonesReales">
+                <button id="leeTmo" onclick="cargarPagina('./leetmo.html')" tabindex="-1">
+                    LeeT
+                </button>
+            </div>      
+            <div class="botonesReales">
+                <button id="promT" onclick="cargarPagina('./promTMO.html')" tabindex="-1">
+                    P.T
+                </button>
+            </div>  
+            <!-- CARGA PAGINAS UTILES -->
+            <button onclick="cargarPagina('./encuentraId.html')">Ver Id</button>
+            <button onclick="cargarPagina('./listaCargaGrabaCorreosTipo.html')">@</button>
+            <!-- <button onclick="cargarPagina('./editaCorreosTipo.html')">Edit@</button> -->
+            <button onclick="cargarPagina('./llamaAlerta.html')">Alert</button>
+            <button onclick="cargarPagina('./bitacora.html')">Bit</button>
+            <!-- <button onclick="cargarPagina('./turno.html')">Turnos</button> -->
+            <!-- PARA LOCAL STORAG -->
+            <div class="tooltip botonesReales">
+                <button onclick="borraLocal()" tabindex="27">BorraLoc.</i></button>
+            </div>
+            <!-- PARA BACKUP -->
+            <!-- GRABA todo-->
+            <button onclick="grabaTodo()" >G.B.D.</button>
+            <!-- LEEE TODO -->
+            <button onclick="leeTotal()" >LeeB.D.</button>
+            <!-- GRABA BCK SIN LLAMADAS -->
+            <button onclick="grabaBackup()" >G.Bck</button>
+            <!-- LEE -->
+            <!-- <input type="file" id="backupJSON" accept=".json"> -->
+	        <button id="btnLeeBckp" onclick="leeBackup()">LeeBck</button>
+            <!-- EDITA LOCAL STRG -->
+            <div class="tooltip botonesReales">
+                <button onclick="cargarPagina('./editaLocalStorage.html')">EdLoc</button>
+            </div>
+            <!-- NUEVO ASUNTO -->
+            <button id="btnNuevoAsunto" onclick="nuevoAsuntoAqui()" >+As.</button>
+        </section>
+        <!-- ---------------------------------------------- -->
+        <!-- SALUDO -->
+        <section>
+            <div class="srYsra">
+                <div>
+                    <input type="radio" id="sr" name="salutation" value="Sr." checked tabindex="-1">
+                  <label for="sr">Sr.</label>
+                </div>
+                <div>
+                  <input type="radio" id="sra" name="salutation" value="Sra." tabindex="-1">
+                  <label for="sra">Sra.</label>
+                </div>
+                <!-- <button class='boton-copiar' onclick="getSalutation()" tabindex="-1">C</i></button> -->
+            </div>
+            <div>
+                <div class="tooltip">
+                    <input type="text" id="usuarioNombres" name="Nombres" placeholder="Nombres" tabindex="2">
+                </div>
+                <div class="botones">
+                    <button class="uppercase-btn" onclick="mayusculasNombres()">
+                        My
+                    </button>
+                    <button></button>
+                    <button class="lowercase-btn" onclick="minusculasNombres()">
+                        Mn
+                    </button>
+                    <button onclick="borrar('usuarioNombres')">B</button>
+                    <button class='boton-copiar' onclick="copiar('usuarioNombres')">C</i></button>
+                </div>
+            </div>
+            <div>
+                <!-- AP PATERNO -->
+                <div>
+                    <div>
+                        <div class="tooltip">
+                            <input type="text" id="usuarioApellidoPaterno" name="usuarioApellidoPaterno"placeholder="Apellido Paterno"tabindex="3">
+                        </div>
+            
+                        <div class="botones">
+                            <button class="uppercase-btn" onclick="mayusculasPaterno()">
+                                My
+                            </button>
+                            <button>
+                            </button>
+                            <button class="lowercase-btn" onclick="minusculasPaterno()">
+                                Mn
+                            </button>
+                            <button class='delete' onclick="borrar('usuarioApellidoPaterno')">B</button>
+                            <button class='boton-copiar' onclick="copiar('usuarioApellidoPaterno')">C</button>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <!-- AP MATERNO -->
+                    <div>
+                        <div>
+                            <input type="text" id="usuarioApellidoMaterno" name="usuarioApellidoMaterno" placeholder="Apellido Materno" tabindex="4">
+                        </div>
+                        <div class="botones">
+                            <button class="uppercase-btn" onclick="mayusculasMaterno()">
+                                My
+                            </button>
+                            <button>
+                            </button>
+                            <button class="lowercase-btn" onclick="minusculasMaterno()">
+                                Mn
+                            </button>
+                            <button class='delete' onclick="borrar('usuarioApellidoMaterno')">B</button>
+                            <button class='boton-copiar' onclick="copiar('usuarioApellidoMaterno')">C</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- APELLIDOS -->
+            <div>
+                <div class="tooltip">
+                    <input type="text" id="apellidos" name="apellidos" placeholder="Apellidos" tabindex="-1" >
+                </div>
+                <div class="botones">
+                    <button class='boton-copiar' onclick="copiar('apellidos')">C</button>
+                    <button class='delete' onclick="borrar('apellidos')">B</i></button>
+                    <button onclick="juntarApellidos()" onkeydown="if (event.key === 'Enter') { juntarApellidos() }" tabindex="-1" >J</button>
+                    <button onclick="juntarNombresApellidos()" tabindex="-1" >T</button>
+                    <button class="uppercase-btn" onclick="mayusculasTodo()">
+                        MM
+                    </button>
+                </div>
+            </div>
+        </section>
+        <!-- ----------------------------------------------- -->
+        <!-- SECCION TOOGLE NROS SERVICIO -->
+        <!-- NRO DE SERV  DIGITO Y NROS ADIC    -->
+        <section id="servicio">
+            <!-- NUMERO DE SERVICIO-->
+            <section class="numeroServicio">
+                    <input type="text" id="numeroServicio" name="numeroServicio" placeholder="ID Nro Servicio" tabindex="6">
+                    <div class="botonesReales">
+                        <button class='boton-copiar' onclick="copiar('numeroServicio')">C</button>
+                        <button class='boton-copiar' onclick="copiaId()">I</button>
+                        <button class='delete' onclick="borrar('numeroServicio')">B</button>
+                    </div>
+                    <div class="temporal">
+                        <p><span id="tempo"></span></p>
+                    </div>
+            </section>
+            <!-- DIGITO VERIFICADOR -->
+            <section class="numeroServicio">
+                <div>
+                    <input type="text" id="digitoVerificador" name="digitoVerificador" placeholder="D.V" tabindex="7">
+                    <div class="botones">
+                        <button class='boton-copiar' onclick="copiar('digitoVerificador')">C</button>
+                        <button class='delete' onclick="borrar('digitoVerificador')">B</button>
+                    </div>
+                </div>
+            </section>
+             <!-- NUMEROS ADICIONALES -->
+            <section class="numerosAdicionales">
+                <input type="text" id="numeroAtencion" name="numeroAtencion" placeholder="Nro Atencion" tabindex="26">
+                <div class="botones">
+                    <button class='boton-copiar' onclick="copiar('numeroAtencion')">C</button>
+                    <button class='delete' onclick="borrar('numeroAtencion')">B</button>
+                </div>
+                <!-- <input type="text" id="numeroAviso" name="numeroAviso" placeholder="Nro Aviso" tabindex="-1">
+                <div class="botones">
+                    <button class='boton-copiar' onclick="copiar('numeroAviso')">C</button>
+                    <button class='delete' onclick="borrar('numeroAviso')">B</button>
+                </div>
+                <input type="text" id="numeroOrden" name="numeroOrden" placeholder="Nro Orden" tabindex="-1">
+                <div class="botones">
+                    <button class='boton-copiar' onclick="copiar('numeroOrden')">C</button>
+                    <button class='delete' onclick="borrar('numeroOrden')">B</button>
+                </div> -->
+            </section>
+            <!-- BUSCADOR ATIVA Y DESACTIVA -->
+            <div class="activaSelectorFecha">
+                <button type="button" onclick="buscar()">Buscar</button>
+                <button id="activar-select" onclick="activaHora('activa')">A</button>
+                <button id="desactivar-select" onclick="activaHora('desactiva')">D</button>
+            </div>
+            <!-- SELECTOR EN BASE A HORAS -->
+            <div class="divAjuste">
+                <select id="horaIni" size="7" disabled="true"></select>
+            </div>
+        </section>
+        <!-- SECCION DIRECCION -->
+        <section id="direcciones">
+            <!-- DIRECCION -->
+            <!-- <section  id="datosDireccion"> -->
+                <div class="botones">
+                    <!-- CALLE -->
+                    <div>
+                        <div class="botones">
+                            <input type="text" id="calle" name="calle" placeholder="Calle" tabindex="8">
+                        </div>
+                    <div class="botones">
+                        <button class='boton-copiar' onclick="copiar('calle')">C</button>
+                            <button class='delete' onclick="borrar('calle')">B</button>
+                            <button>
+        
+                            </button>
+                            <button class="uppercase-btn" onclick="mayusculas('calle')">
+                                My
+                            </button>
+                            <button>
+                            </button>
+                            <button class="lowercase-btn" onclick="minusculas('calle')">
+                                Mn
+                            </button>
+                        </div>
+                    </div>
+                    <div>
+                        <!-- NUMERO -->
+                        <div class="botones">
+                            <input type="text" id="numero" name="numero" placeholder="Nro" tabindex="9">
+                        </div>
+                        <div class="botones">
+                            <button class='boton-copiar' onclick="copiar('numero')">C</button>
+                            <button class='delete' onclick="borrar('numero')">B</button>
+                        </div>
+                    </div>
+                    <div>
+                        <!-- DEPTO -->
+                        <div class="botones">
+                            <input type="text" id="depto" name="depto" placeholder="Depto" tabindex="10">
+                        </div>  
+                        <div class="botones">
+                            <button class='boton-copiar' onclick="copiar('depto')">C</button>
+                            <button class='delete' onclick="borrar('depto')">B</i></button>
+                        </div>
+                    </div>
+                    <div>
+                        <!-- COMUNA -->
+                        <input type="text" id="comuna" name="comuna" placeholder="Comuna" tabindex="11">
+                        <!-- </div> -->
+                        <div class="botones">
+                            <div class="botones">
+                                <button class='boton-copiar' onclick="copiar('comuna')">C</button>
+                                <button class='delete' onclick="borrar('comuna')">B</button>
+                                <button></button>
+                                <button class="uppercase-btn" onclick="mayusculas('comuna')">
+                                    My
+                                </button>
+                                <button></button>
+                                <button class="lowercase-btn" onclick="minusculas('comuna')">
+                                    Mn
+                                </button>
+                            </div>
+                            
+                        
+                        </div>
+                    </div>
+                </div>
+                <div class="botones">
+                    <input type="text" id="direccion" name="direccion" placeholder="Direccion" tabindex="-1">
+                </div>
+                <div class="botones">
+                    <button class='boton-copiar' onclick="copiar('direccion')">C</button>
+                    <button class='delete' onclick="borrar('direccion')">B</i></button>
+                    <button onclick="juntarDireccion()" tabindex="-1" >T</button>
+                    <button class="uppercase-btn" onclick="mayusculas('direccion')">
+                        My
+                    </button>
+                    <button></button>
+                    <button class="lowercase-btn" onclick="minusculas('direccion')">
+                        Mn
+                    </button>
+                </div>
+            <!-- REFERENCIA -->
+                <input type="text" id="referencia" name="referencia" placeholder="Referencia" tabindex="12">
+                <div class="botones">
+                    <button class='boton-copiar' onclick="copiar('referencia')">C</button>
+                    <button class='delete' onclick="borrar('referencia')">B</i></button>
+                    <button onclick="juntarReferencia()" tabindex="-1" >T</button>
+                    <button class="uppercase-btn" onclick="mayusculas('referencia')">
+                        My
+                    </button>
+                    <button></button>
+                    <button class="lowercase-btn" onclick="minusculas('referencia')">
+                        Mn
+                    </button>
+                </div>
+        </section>
+        <!-- SECCION TOOGLE RUT CELULAR -->
+        <!-- <button onclick="toggleSection('rutcelmail')">Datos Claves</button> -->
+        <section id="rutcelmail">
+            <!-- RUT -->
+            <div>
+                <div>
+                    <input type="text" id="rut" name="rut" placeholder="Rut" tabindex="13">
+                    <div class="botones">
+                        <button class='boton-copiar' onclick="copiar('rut')">C</button>
+                        <button class='delete' onclick="borrar('rut')">B</button>
+                    </div>
+                </div>
+            </div>
+            <!-- CELULAR -->
+            <div>
+                <div>
+                    <input type="tel" id="celular" name="celular" placeholder="Celular" tabindex="14">
+                    <!-- <span id="validaCel"></span> -->
+                </div>
+                <div class="botones">
+                    <button class='boton-copiar' onclick="copiar('celular')">C</button>
+                    <button class='delete' onclick="borrar('celular')">B</button>
+                </div>
+            </div>
+            <!-- CORREO -->
+            <div>
+                <div>
+                    <input type="text" id="mail" name="mail" placeholder="Correo" tabindex="15">
+                </div>
+                <div class="botones">
+                    <button class='boton-copiar' onclick="copiar('mail')">C</button>
+                    <button class='delete' onclick="borrar('mail')">B</button>
+                    <button class="lowercase-btn" onclick="minusculasCorreo()">
+                        mn
+                    </button>
+                </div>
+            </div>
+        </section>
+       
+        <!-- NUEVOS ASUNTOS  -->
+        <section class="admiAsunto">
+                    <div class="botones">
+                        <select id="listaAsuntos" onchange="mostrarDetalleAsunto()"></select>
+                        <button id="btnSetAsunto">Set</button>
+                        <!-- <div> -->
+                            <input type="text" id="nuevoAsunto" placeholder="Nuevo Asunto" oninput="limpiaDetalle()"><br><br>
+                        <!-- </div> -->
+                    </div>
+        </section>
+        <!-- DETALLE ASUNTO -->
+        <div class="botones">
+            <div>
+                <textarea oninput="autoResize(this)" placeholder="Asunto" id="detalleAsunto"></textarea><br><br>
+            </div>
+        </div>
+         <!-- ASUNTO -->
+        <section class="botones">
+            <!-- BOTONES PARA NUEVOS ASUNTOS -->
+            <button onclick="editaAsunto()">Ed</button>
+            <button onclick="agregarAsunto()">Grb<button><br><br>
+            <button onclick="eliminarAsunto()">Eli</button>
+            <button onclick="grabarDetalle()">Gr.Det</button>
+            <div>
+                <button onclick="guardarEnArchivoAsunto()">G.Js</button>
+                <button onclick="cargarDesdeJSONAsuntos()">L.Js</button>
+                <input type="file" id="archivoJSON">
+            </div>
+            <button onclick="ordenaAsuntos()">Ord</button>
+            <button onclick="presentaAsunto()">Pre</button>
+        </section>
+        <!-- ASUNTO REAL -->
+        <div>
+                <textarea oninput="autoResize(this)" id="asunto" name="asunto" placeholder="Asunto" tabindex="16"></textarea>
+                <div class="botones">
+                    <button class='boton-copiar' onclick="copiar('asunto')">C</button>
+                    <button class='delete' onclick="borrar('asunto')">B</button>
+                    <button class="uppercase-btn" onclick="mayusculas('asunto')">
+                        My
+                    </button>
+                    <button></button>
+                    <button class="lowercase-btn" onclick="minusculas('asunto')">
+                        Mn
+                    </button>
+                </div>
+        </div>
+        <!-- GLOSA -->
+        <button onclick="toggleSection('seccionGlosa')">Glosa</button>
+        <section id="seccionGlosa">
+            <textarea id="glosa" name="glosa" placeholder="Glosa" tabindex="17"></textarea>
+            <!-- BOTONERA -->
+            <div class="botones">
+                <button class='boton-copiar' onclick="copiar('glosa')">C</button>
+                <button class='delete' onclick="borrar('glosa')">B</button>
+                <button class="gear-button" onclick="compilaTextos()">☼</button>
+                <button class="gear-button" onclick="juntaTodo()">T</button>
+                <button class="gear-button" onclick="juntaTodoLineal()">L</button>
+                <button class="gear-button" onclick="juntaContacto(1)">l</button>
+                <button class="gear-button" onclick="juntaContacto(-1)">-</button>
+                
+                <button class="uppercase-btn" onclick="mayusculas('glosa')">
+                    My
+                </button>
+                <button></button>
+                <button class="lowercase-btn" onclick="minusculas('glosa')">
+                    Mn
+                </button>
+            </div>
+        </section>
+        <!-- DESARROLLO  -->
+        <textarea id="desarrollo" name="desarrollo" placeholder="Desarrollo" tabindex="18"></textarea>
+        <div class="botones">
+            <button class='boton-copiar' onclick="copiar('desarrollo')">C</button>
+            <button class='delete' onclick="borrar('desarrollo')">B</button>
+            <button class="uppercase-btn" onclick="mayusculas('desarrollo')">
+                My
+            </button>
+            <button></button>
+            <button class="lowercase-btn" onclick="minusculas('desarrollo')">
+                Mn
+            </button>
+            <button></button>
+            <button class="lowercase-btn" onclick="desarrolloAasunto()">
+                A
+            </button>
+            <button></button>
+            <button class="lowercase-btn" onclick="desarrolloAglosa()">
+                G
+            </button>
+	        <button onclick="guardarCambios()">Actualiza</button>
+        </div>
+    </form>  
+    <section id="seccionRecordar">
+        <h3>RECORDATORIOS</h3>
+        <!-- RECORDATORIO -->
+        <input type="text" id="recordatorio" name="recordatorio" placeholder="Recordatorio"  tabindex="19">
+        <button onclick="agregarRecordatorio(event)">Grabar Recordatorio</button>
+        <form id="recordatorio-form">
+            <div>
+                <div>
+                    <input type="text" id="id-input" placeholder="Id. Nro Servicio" tabindex="-1" required>
+                        <!-- <button onclick="idParaRecordatorio()">ID</button> -->
+                    <div id="textoRecordar">
+                        <input type="text" id="nombre-input" placeholder="Recordar" tabindex="-1" required>
+                    </div>
+                </div>
+                <input type="text" id="gestion-input" placeholder="Gestionar" tabindex="-1" required>
+            </div>
+            <!-- <div class="botones"> -->
+            <div>
+                <button type="submit" tabindex="25" >Guardar</button>
+                <!-- Agregar botón extra -->
+                <button id="guardar-btn">Guardar en JSON</button>
+                <button id="recuperar-btn">Recuperar desde JSON</button>
+                <button id="eliminarBtn" onclick="eliminarRecordatorios()" >Eliminar todos los Recordatorios</button>
+            </div>
+        </form>
+        <table id="recordatorios-table" tabindex="-1">
+          <thead>
+            <tr>
+              <th>Nombre</th>
+              <th>Gestión</th>
+              <th>ID</th>
+              <th>Grabar</th>
+            </tr>
+          </thead>
+          <tbody>
+          </tbody>
+        </table>
+    </section>
+    <br>
+    <!-- TABLA TMO -->
+    <section id="tiempos">
+        <div>
+            <h1>CALCULO TMO</h1>
+            <table id="promedios">
+                <thead>
+                    <tr>
+                        <th>Hora Inicial</th>
+                        <th>Hora Final</th>
+                        <th>Diferencia de Tiempo</th>
+                    </tr>
+                </thead>
+                <tbody id="data-table">
+                    
+                </tbody>
+            </table>
+        </div>
+    </section>
+    <!-- formulario BITACORA -->
+    <section>
+        <form class="bitacoraActual">
+            <section class="botonera">
+                <section>
+                    <button type="button" onclick="guardarNota()">Guardar</button>
+                    <div class="botonesJson">
+                        <button onclick="leerJSON()">Leer JSON</button>
+                        <button id="btnGuardar" onclick="guardarBitacora()">Guardar JSON</button>
+                        <input type="file" id="archivoJSON">
+                    </div>
+                </section>
+                <div>
+                <h3>BITACORA</h3>
+                <p id="fechaHoraBit"></p>
+                <p id="textoDelDia"></p>
+                <div class="fechaHoraBit">
+                    <input type="date" id="fechaBit" name="fechaBit" value="" class="form-field date"><br><br>
+                    <p><span id="horaBit"></span></p>
+                </div>
+                <p><span id="horaGrabaBit"></span></p>
+            </div>
+            <textarea id="nota" name="nota" rows="5" cols="50"></textarea><br><br>
+            <div class="msgBase">
+                <P id="pF3" onclick=" insertarFechaHora()">F3 para fecha </P>
+                <P id="pF2" onclick="guardarNota()">F2 para grabar </P>
+            </div>
+
+        </form>
+    </section>
+
+    <!-- PARA CARGAR TABLA CON ARCHIVO LECTURA -->
+    <!-- BOTONERA AMPLIA TABLAS -->
+    <section class="seccionPresentaLLamadas">
+            <button onclick="leeLocalLLamadasTodas()">Ver Todas Las columnas</button>
+            <button onclick="leeLocalLLamadas()">Ver Solo Glosa</button>
+            <button onclick="leeLocalLLamadasGD()">Ver Glosa y desarrollo</button>
+    </section>
+    <div id="table-container"></div>
+
+    <!-- SCRIPTS -->
+    <script src="./JS/libreria.js"></script>
+    <script src="./JS/bitacora.js"></script>
+    <script src="./JS/index.js"></script>
+    <script>
+        iniciar()
+    </script>
+</body>
+</html>

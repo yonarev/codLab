@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Unir y ordenar archivos JSON</title>
+</head>
+<body>
+  <script src="./JS/libreria.js"></script>
+  <script>
+    let data = [];
+
+    function mergeFiles(files) {
+      // Reiniciar la matriz de datos
+      data = [];
+      // Recorrer los archivos seleccionados
+      for (let i = 0; i < files.length; i++) {
+        let file = files[i];
+        // Crear un objeto FileReader para leer el archivo
+        let reader = new FileReader();
+        // Configurar el evento onload para agregar los datos a la matriz
+        reader.onload = function (event) {
+          let jsonData = JSON.parse(event.target.result);
+          for (let i = 0; i < jsonData.length; i++) {
+            data.push(jsonData[i]);
+          }
+        };
+        // Leer el contenido del archivo
+        reader.readAsText(file);
+      }
+      alert('Se integraron archivos en Memoria')
+
+    }
+    function sortData() {
+      // Ordenar la matriz de datos por fecha y hora
+      alert('Llamadas Ordenadas por fecha y hora en Memoria')
+      data.sort(function (a, b) {
+        let fechaA = a.fechaInicio + " " + a.horaInicio;
+        let fechaB = b.fechaInicio + " " + b.horaInicio;
+        return new Date(fechaA) - new Date(fechaB);
+      });
+    }
+
+    function downloadData() {
+      // Convertir la matriz de datos en una cadena JSON
+      let json = JSON.stringify(data, null, 2);
+
+      // Crear un objeto Blob con el contenido JSON
+      let blob = new Blob([json], {type: "application/json"});
+      // Crear un objeto URL a partir del Blob
+      let url = URL.createObjectURL(blob);
+      // Crear un elemento de descarga y hacer clic en él para descargar el archivo
+      let a = document.createElement("a");
+      a.href = url;
+      a.download = "todasLasLLamadas.json";
+      a.click();
+    }
+  </script>
+
+  <h1>Integrar y ordenar archivos JSON</h1>
+  <p>1-Seleccione los archivos JSON que desea unir:</p>
+  <input type="file" id="fileInput" multiple>
+  <br><br>
+  <button onclick="mergeFiles(fileInput.files)">2-Unir archivos</button>
+  <button onclick="sortData()">3-Ordenar datos</button>
+  <button onclick="downloadData()">4-Descargar archivo</button>
+  <button type="button" onclick='cargarPagina("./presentaLLamadas.html")'>Presenta las Llamadas</button>
+</body>
+</html>

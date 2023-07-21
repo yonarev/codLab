@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Horario</title>
+  </head>
+  <body>
+    <h1>Mi horario</h1>
+    <!-- Formulario para ingresar horarios -->
+    <form>
+      <label>
+        Fecha:
+        <input type="date" name="fecha" required>
+      </label><br><br>
+      <label>
+        Hora de inicio:
+        <input type="time" name="inicio" required>
+      </label><br><br>
+      <label>
+        Hora de término:
+        <input type="time" name="termino" required>
+      </label><br><br>
+      <label>
+        Break de la mañana:
+        <input type="time" name="break_am">
+      </label><br><br>
+      <label>
+        Break de la tarde:
+        <input type="time" name="break_pm">
+      </label><br><br>
+      <label>
+        Hora de colación:
+        <input type="time" name="colacion">
+      </label><br><br>
+      <button type="submit">Guardar</button>
+    </form>
+    <hr>
+    <!-- Tabla que muestra los horarios guardados -->
+    <table>
+      <thead>
+        <tr>
+          <th>Fecha</th>
+          <th>Hora de inicio</th>
+          <th>Hora de término</th>
+          <th>Break de la mañana</th>
+          <th>Break de la tarde</th>
+          <th>Hora de colación</th>
+        </tr>
+      </thead>
+      <tbody id="horario"></tbody>
+    </table>
+    <button id="guardar-datos">Guardar datos</button>
+    <input type="file" id="fileInput">
+    <script src="./JS/turnos.js"></script>
+</body>
+</html>
